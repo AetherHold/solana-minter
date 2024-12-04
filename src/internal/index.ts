@@ -1,4 +1,6 @@
-import { SolanaEnv } from "../init";
+import { Keypair } from "@solana/web3.js";
+import { initializeKeypair, SolanaEnv } from "../init";
+import { createMintAccountWithATAAndSend } from "../utils/solana/createMintAccountWithATA";
 
 export enum InternalFunctions {
     CreateMintAccountWithATA = "createMintAccountWithATA",
@@ -6,10 +8,25 @@ export enum InternalFunctions {
 }
 
 export const internalFunctions: Record<InternalFunctions, (env: SolanaEnv) => void> = {
-    [InternalFunctions.CreateMintAccountWithATA]: (env) => {
+    [InternalFunctions.CreateMintAccountWithATA]: async (env) => {
         console.log("Executing createMintAccountWithATA...");
-        console.log("Network:", env.connection.rpcEndpoint);
-        console.log("Wallet Public Key:", env.anchorProvider.wallet.publicKey.toBase58());
+
+        const mintKeypair = Keypair.generate();
+        const ScriptsKeypair = initializeKeypair();
+        const params = {
+            connection: env.connection,
+            payer: ScriptsKeypair,
+            mintKeypair,
+            decimals: 9,
+            space: 82,
+        };
+
+        try {
+            const signature = await createMintAccountWithATAAndSend(params);
+            console.log("Mint account created successfully with transaction signature:", signature);
+        } catch (error) {
+            console.error("Failed to create mint account:", error);
+        }
     },
     [InternalFunctions.AnotherInternalFunction]: (env) => {
         console.log("Executing another internal function...");
