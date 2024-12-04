@@ -1,0 +1,9 @@
+{
+    "solana-net": "devnet",
+    "toDo": "program",
+    "program": {
+        "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5",
+        "function": "mintNft"
+    },
+    "args": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5"
+}

@@ -1,6 +1,6 @@
 # README
 
-A simple large number of castings are available for your application to use.
+A simple large number of NFTs castings are available for your application to use.
 
 ENV:
 
@@ -13,4 +13,21 @@ PRIVATE_KEY=your_base58_private_key_here
 DEVNET_RPC_URL=https://api.devnet.solana.com
 # Solana Mainnet
 MAINNET_RPC_URL=your-solana-mainnet-nodes
+```
+
+Please note! The wallet used for this script will be NFT authority.
+
+## Config
+
+At ./src/config.json
+
+```jsonc
+{
+    "solana-net": "devnet", // "devnet" || "mainnet"
+    "toDo": {
+        "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5", // your program id
+        "function": "mintNft" // target function
+    },
+    "sources": "test1"
+}
 ```
