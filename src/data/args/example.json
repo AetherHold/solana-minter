@@ -1,10 +1,26 @@
 {
-    "object": {
-        "trasnfer": "",
+    "object0": {
+        "transfer": "",
         "args": {
-            "name": "",
-            "symbol": "",
-            "uri": ""
+            "name": "Test NFT_#1",
+            "symbol": "TEST",
+            "uri": "https://example.com/metadata.json"
+        }
+    },
+    "object1": {
+        "transfer": "",
+        "args": {
+            "name": "Test NFT_#2",
+            "symbol": "TEST",
+            "uri": "https://example.com/metadata.json"
+        }
+    },
+    "object2": {
+        "transfer": "",
+        "args": {
+            "name": "Test NFT_#3",
+            "symbol": "TEST",
+            "uri": "https://example.com/metadata.json"
         }
     }
 }

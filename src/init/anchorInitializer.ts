@@ -1,6 +1,5 @@
 import { Connection, Keypair } from "@solana/web3.js";
 import * as anchor from "@coral-xyz/anchor";
-import fs from "fs";
 
 export function initializeAnchorProvider(rpcUrl: string, walletKeypair: Keypair) {
     // 使用傳入的 Keypair

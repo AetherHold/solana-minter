@@ -23,7 +23,7 @@ export function missionManager(config: {
         const internalFunction = internalFunctions[config.args as InternalFunctions];
         internalFunction(env);
     } else if (config.toDo === "program") {
-        const argsFilePath = path.resolve(__dirname, `../data/args/${config.args}.json`);
+        const argsFilePath = path.resolve(__dirname, `./data/args/${config.args}.json`);
         if (!fs.existsSync(argsFilePath)) {
             throw new Error(`Args file "${config.args}.json" not found in src/data/args.`);
         }

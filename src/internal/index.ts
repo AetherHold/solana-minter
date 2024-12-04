@@ -12,10 +12,10 @@ export const internalFunctions: Record<InternalFunctions, (env: SolanaEnv) => vo
         console.log("Executing createMintAccountWithATA...");
 
         const mintKeypair = Keypair.generate();
-        const ScriptsKeypair = initializeKeypair();
+        const scriptsKeypair = initializeKeypair();
         const params = {
             connection: env.connection,
-            payer: ScriptsKeypair,
+            payer: scriptsKeypair,
             mintKeypair,
             decimals: 9,
             space: 82,

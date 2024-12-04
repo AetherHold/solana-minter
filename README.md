@@ -2,6 +2,8 @@
 
 A simple large number of NFTs castings are available for your application to use.
 
+## Quick Start
+
 ENV:
 
 ```makefile
@@ -15,11 +17,30 @@ DEVNET_RPC_URL=https://api.devnet.solana.com
 MAINNET_RPC_URL=your-solana-mainnet-nodes
 ```
 
-Please note! The wallet used for this script will be NFT authority.
+Place your task at ./src/data/args/your_task.json
 
-## Config
+```jsonc
+{
+    "object0": {
+        "transfer": "",
+        "args": {
+            "name": "Test NFT_#1",
+            "symbol": "TEST",
+            "uri": "https://example.com/metadata.json"
+        }
+    },
+    "object1": {
+        "transfer": "",
+        "args": {
+            "name": "Test NFT_#2",
+            "symbol": "TEST",
+            "uri": "https://example.com/metadata.json"
+        }
+    }
+}
+```
 
-At ./src/config.json
+Setup Config at ./config.json
 
 ```jsonc
 {
@@ -28,6 +49,26 @@ At ./src/config.json
         "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5", // your program id
         "function": "mintNft" // target function
     },
-    "sources": "test1"
+    "sources": "your_task"
 }
+```
+
+Check test
+
+```bash
+npx jest
+```
+
+Run
+
+```bash
+npx ts-node ./main.ts
+```
+
+## Genarate
+
+Generate arg
+
+```bash
+npx ts-node ./scripts/generateArgFile.ts
 ```
