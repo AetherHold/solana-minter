@@ -1,9 +1,9 @@
 {
     "solana-net": "devnet",
-    "toDo": "program",
+    "toDo": "internal",
     "program": {
-        "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5",
-        "function": "mintNft"
+        "programId": "none",
+        "function": "none"
     },
-    "args": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5"
+    "args": "createMintAccountWithATA"
 }
