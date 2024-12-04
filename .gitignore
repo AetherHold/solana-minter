@@ -3,3 +3,8 @@ id.json
 .env
 
 node_modules/*
+
+src/data/args/**
+src/data/results/** */
+
+!src/data/**/example*

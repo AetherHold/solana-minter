@@ -1,0 +1,403 @@
+{
+    "version": "0.1.0",
+    "name": "devnet_solana_nft",
+    "instructions": [
+        {
+            "name": "initNft",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "mint",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "associatedTokenAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "metadataAccount",
+                    "isMut": true,
+                    "isSigner": false,
+                    "docs": [
+                        "CHECK - Metadata PDA"
+                    ]
+                },
+                {
+                    "name": "masterEditionAccount",
+                    "isMut": true,
+                    "isSigner": false,
+                    "docs": [
+                        "CHECK - Master Edition PDA"
+                    ]
+                },
+                {
+                    "name": "mintAuthority",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "associatedTokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenMetadataProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "rent",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "symbol",
+                    "type": "string"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "mintNft",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "mint",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "associatedTokenAccount",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "metadataAccount",
+                    "isMut": true,
+                    "isSigner": false,
+                    "docs": [
+                        "CHECK - Metadata PDA"
+                    ]
+                },
+                {
+                    "name": "tokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "associatedTokenProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenMetadataProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "systemProgram",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "rent",
+                    "isMut": false,
+                    "isSigner": false
+                },
+                {
+                    "name": "collectionMint",
+                    "isMut": true,
+                    "isSigner": false
+                }
+            ],
+            "args": [
+                {
+                    "name": "name",
+                    "type": "string"
+                },
+                {
+                    "name": "symbol",
+                    "type": "string"
+                },
+                {
+                    "name": "uri",
+                    "type": "string"
+                }
+            ]
+        },
+        {
+            "name": "verifyNft",
+            "accounts": [
+                {
+                    "name": "signer",
+                    "isMut": true,
+                    "isSigner": true
+                },
+                {
+                    "name": "updateAuthority",
+                    "isMut": true,
+                    "isSigner": false,
+                    "docs": [
+                        "CHECK - This is update_authority"
+                    ]
+                },
+                {
+                    "name": "metadataAccount",
+                    "isMut": true,
+                    "isSigner": false,
+                    "docs": [
+                        "CHECK - Metadata PDA"
+                    ]
+                },
+                {
+                    "name": "collectionMint",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "collectionMetadata",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "collectionMasterEdition",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "tokenMetadataProgram",
+                    "isMut": false,
+                    "isSigner": false
+                }
+            ],
+            "args": []
+        },
+        {
+            "name": "addMinter",
+            "accounts": [
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "minter",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "removeMinter",
+            "accounts": [
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "minterToRemove",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "addAdmin",
+            "accounts": [
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": false,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "admin",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "removeAdmin",
+            "accounts": [
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": false,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "adminToRemove",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "transferOwner",
+            "accounts": [
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "newOwner",
+                    "type": "publicKey"
+                }
+            ]
+        },
+        {
+            "name": "increaseSupply",
+            "accounts": [
+                {
+                    "name": "config",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "permissions",
+                    "isMut": true,
+                    "isSigner": false
+                },
+                {
+                    "name": "user",
+                    "isMut": true,
+                    "isSigner": true
+                }
+            ],
+            "args": [
+                {
+                    "name": "additionalSupply",
+                    "type": "u64"
+                }
+            ]
+        }
+    ],
+    "accounts": [
+        {
+            "name": "Permissions",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "owner",
+                        "type": "publicKey"
+                    },
+                    {
+                        "name": "admins",
+                        "type": {
+                            "vec": "publicKey"
+                        }
+                    },
+                    {
+                        "name": "minters",
+                        "type": {
+                            "vec": "publicKey"
+                        }
+                    }
+                ]
+            }
+        },
+        {
+            "name": "Config",
+            "type": {
+                "kind": "struct",
+                "fields": [
+                    {
+                        "name": "maxSupply",
+                        "type": "u64"
+                    },
+                    {
+                        "name": "currentSupply",
+                        "type": "u64"
+                    }
+                ]
+            }
+        }
+    ],
+    "errors": [
+        {
+            "code": 6000,
+            "name": "Unauthorized",
+            "msg": "Unauthorized action."
+        },
+        {
+            "code": 6001,
+            "name": "MaxSupplyReached",
+            "msg": "Maximum supply reached."
+        },
+        {
+            "code": 6002,
+            "name": "MaxAuthorityReached",
+            "msg": "Maximum authority reached."
+        },
+        {
+            "code": 6003,
+            "name": "MinAuthorityReached",
+            "msg": "Minimum authority reached."
+        }
+    ],
+    "metadata": {
+        "address": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5"
+    }
+}
