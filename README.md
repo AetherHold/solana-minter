@@ -19,6 +19,8 @@ MAINNET_RPC_URL=your-solana-mainnet-nodes
 
 Place your task at ./src/data/args/your_task.json
 
+Scripts would run til no data or wallet no money.
+
 ```jsonc
 {
     "object0": {
@@ -49,7 +51,7 @@ Setup Config at ./config.json
         "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5", // your program id
         "function": "mintNft" // target function
     },
-    "sources": "your_task"
+    "sources": "mintNft" // now only rand mint Nft to specific program id.
 }
 ```
 
@@ -65,9 +67,9 @@ Run
 npx ts-node ./main.ts
 ```
 
-## Genarate
+### Other help tester
 
-Generate arg
+Generate arg for test
 
 ```bash
 npx ts-node ./scripts/generateArgFile.ts
