@@ -55,6 +55,12 @@ Setup Config at ./config.json
 }
 ```
 
+Make sure you already have node.js 18.18.2 or above.
+
+```bash
+npm install
+```
+
 Check test
 
 ```bash
