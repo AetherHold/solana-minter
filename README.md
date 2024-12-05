@@ -51,7 +51,7 @@ Setup Config at ./config.json
         "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5", // your program id
         "function": "mintNft" // target function
     },
-    "sources": "mintNft" // now only rand mint Nft to specific program id.
+    "args": "mintNft" // your mission file at ./src/data/args
 }
 ```
 
