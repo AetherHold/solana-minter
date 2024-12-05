@@ -73,9 +73,15 @@ Run
 npx ts-node ./main.ts
 ```
 
-### Other help tester
+## About IDL
 
-Generate arg for test
+Now version only support program idl format which produced by anchor.
+
+## Helper in project
+
+### Generate Arg File Scripts
+
+Generate arg for test. You can overwrite the template in the file. He can generate as many same templates as you want.
 
 ```bash
 npx ts-node ./scripts/generateArgFile.ts

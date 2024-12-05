@@ -61,20 +61,16 @@ describe("saveResultsAndRemainingArgs", () => {
 
         saveResultsAndRemainingArgs(task, results, remainingArgs);
 
-        // 检查结果目录是否尝试创建
         expect(mockMkdirSync).toHaveBeenCalledWith(resultsDir, { recursive: true });
 
-        // 检查参数目录是否尝试创建
         expect(mockMkdirSync).not.toHaveBeenCalledWith(argsDir, { recursive: true }); // 因为 existsSync 返回 true
 
-        // 检查结果文件是否正确写入
         const resultFilePathRegex = new RegExp(`${resultsDir}/${task}_\\d{1,2}-\\d{1,2}_\\d{1,2}-\\d{1,2}\\.json`);
         expect(mockWriteFileSync).toHaveBeenCalledWith(
             expect.stringMatching(resultFilePathRegex),
             JSON.stringify(results, null, 2)
         );
 
-        // 检查参数文件是否正确写入（覆盖模式，无时间戳）
         expect(mockWriteFileSync).toHaveBeenCalledWith(
             path.join(argsDir, `${task}.json`),
             JSON.stringify(remainingArgs, null, 2)

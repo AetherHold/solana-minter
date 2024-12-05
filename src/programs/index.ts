@@ -114,7 +114,6 @@ export const programs: Record<
                     await new Promise((resolve) => setTimeout(resolve, retryIntervalMs));
                 }
 
-                // 最终确认 Mint 和 ATA 是否已经初始化
                 const mintAccountInfo = await env.connection.getAccountInfo(mint.publicKey);
                 const associatedTokenAccountInfo = await env.connection.getAccountInfo(associatedTokenAccount);
 
@@ -124,11 +123,10 @@ export const programs: Record<
 
                 const mplMetadataProgramId = toMetaplexPublicKey('metaqbxxUerdq28cj1RbAWkYQm3ybzjb6a8bt518x1s');
                 const mplUserMint = toMetaplexPublicKey(mint.publicKey);
-                // 使用 `mplMetadataUmi.eddsa.findPda` 手动生成 Metadata PDA
                 const metadataPda = env.umi.eddsa.findPda(mplMetadataProgramId, [
-                    string({ size: 'variable' }).serialize('metadata'), // Seed 1: 字符串 'metadata'
-                    publicKeySerializer().serialize(mplMetadataProgramId), // Seed 2: Metadata Program 的 PublicKey
-                    publicKeySerializer().serialize(mplUserMint), // Seed 3: 当前 collectoin mint 的 PublicKey
+                    string({ size: 'variable' }).serialize('metadata'),
+                    publicKeySerializer().serialize(mplMetadataProgramId),
+                    publicKeySerializer().serialize(mplUserMint),
                 ]);
 
                 const metadataAccount = toMetaplexPublicKey(metadataPda);

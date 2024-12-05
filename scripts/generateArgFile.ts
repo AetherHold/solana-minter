@@ -41,7 +41,7 @@ const template = {
     },
 };
 
-const count = 10; // Generate 10 objects
-const outputFile = "mintNftArgs";
+const count = 4; // Generate 10 objects
+const outputFile = "test1";
 
 generateArgsFile(template, count, outputFile);

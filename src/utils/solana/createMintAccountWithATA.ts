@@ -64,10 +64,8 @@ export async function createMintAccountWithATAAndSend(
     transaction.feePayer = payer.publicKey;
     transaction.recentBlockhash = (await connection.getLatestBlockhash()).blockhash;
 
-    // 签名交易
     transaction.sign(payer, mintKeypair);
 
-    // 发送交易
     const signature = await sendAndConfirmTransaction(connection, transaction, [payer, mintKeypair]);
     console.log("Transaction signature:", signature);
 
