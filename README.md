@@ -51,7 +51,7 @@ Setup Config at ./config.json
         "programId": "4u3DGBGpxb8963q2sJEasrKP73tQ2rbEgoUsVEqH4bY5", // your program id
         "function": "mintNft" // target function
     },
-    "args": "mintNft" // your mission file at ./src/data/args
+    "args": "your_task" // your task file name at ./src/data/args
 }
 ```
 
