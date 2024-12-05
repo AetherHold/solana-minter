@@ -4,7 +4,7 @@ A simple large number of NFTs castings are available for your application to use
 
 ## Quick Start
 
-ENV:
+.env at ./secret/.env , ENV content:
 
 ```makefile
 # Base58 private key for development environment only.
